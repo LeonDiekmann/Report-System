@@ -17,7 +17,7 @@ let list = [
     }
 ];
 const AcceptedReport = (element) => (
-    <Accordion head = "Übernommener Report 1" badge = "Notfall"  dataGroup = "acceptedReport" className="accordion--wrapped">
+    <Accordion head = {element.shortDesc} badge = "Notfall"  dataGroup = "acceptedReport" className="accordion--wrapped">
         <div className="accordion__item" data-group="article">
             <div className="article-image-text collapsible">
                 <div className="article">
@@ -35,7 +35,9 @@ const AcceptedReport = (element) => (
                     <div className="article__text">
                         <div className="article__content collapsible">
                             <div>
-                                <div className="description">Dieses Programm ist noch nicht fertig und müsste gefixed werden.<br/>Bamboo<br/>Leon Diekmann</div>
+                                <div className="description">Beschreibung:{element.desc}</div>
+                                <div className="description">Location: {element.location}</div>
+                                <div className="description">Name: {element.name}</div>
                             </div>
                             <div className="controls">
                                 <div className="article-controls detailed">
@@ -56,7 +58,7 @@ const AcceptedReport = (element) => (
                 <div className="right" >
                     <SelectButton
                         style={{marginRight: "10px"}}
-                        label="Abteilung"
+                        label={list[0].name}
                         list={list}
                         onSelect={(value) => { 
                             console.log(value);
