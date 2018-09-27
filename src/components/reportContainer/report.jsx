@@ -1,9 +1,9 @@
 import React from "react";
-import { Accordion,Button } from 'chayns-components';
+import { Accordion,Button, Gallery } from 'chayns-components';
+import 'chayns-components/lib/react-chayns-gallery/index.css';
 
-const badge = <i>Notfall</i>;
 const Report = (element) => (
-    <Accordion head = "Report 1" badge = {badge} style= {{marginBottom: "0px"}} dataGroup = "Report">
+    <Accordion head = "Report 1" badge = "Notfall"  dataGroup = "Report" className="accordion--wrapped">
         <div className="accordion__item" data-group="article">
             <div className="article-image-text collapsible">
                 <div className="article">
@@ -12,7 +12,7 @@ const Report = (element) => (
                             <div className="mic-slider-container">
                                 <div className="mic-slider-wrapper">
                                     <div className="mic-slider-slide">                            
-                                        <img src="https://tappqa.tobit.com/Training/2018/LD/Stock.png"/>
+                                        <Gallery height={161.52} width={161.52} urls={["https://tappqa.tobit.com/Training/2018/LD/Stock.png"]}/>
                                     </div>
                                 </div>
                             </div>
@@ -21,24 +21,25 @@ const Report = (element) => (
                     <div className="article__text">
                         <div className="article__content collapsible">
                             <div>
-                                <div className="description">Dieses Programm ist noch nicht fertig und müsste gefixed werden.<br/>12345<br/>Leon Diekmann</div>
+                                <div className="description">Dieses Programm ist noch nicht fertig und müsste gefixed werden.<br/>Bamboo<br/>Leon Diekmann</div>
                             </div>
                             <div className="controls">
                                 <div className="article-controls detailed">
                                     <div className="trigger accordion--trigger">
-                                        
                                     </div>
                                     <div className="cc__amount-control cc__amount-control--shop">
-                                        <Button className="choosebutton" >
-                                            <div>
-                                                Übernehmen
-                                            </div>
-                                        </Button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="center">
+                    <Button style = {{marginTop: "10px"}}>
+                        <div>
+                            Übernehmen
+                        </div>
+                    </Button>
                 </div>
             </div>
         </div>

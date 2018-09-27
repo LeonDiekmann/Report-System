@@ -1,3 +1,6 @@
+.center {
+    text-align: center;
+}
 .accordion__item {
     white-space: inherit;
     display: block!important;
@@ -134,7 +137,7 @@ element.style {
     white-space: pre-line;
     overflow-wrap: break-word;
     overflow-x: hidden;
-    min-height: 152.52px;
+    min-height: 115.52px;
 }
 
 .article .article__text .options {

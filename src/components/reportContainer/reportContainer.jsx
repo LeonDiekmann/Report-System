@@ -6,6 +6,7 @@ import UserContainer from '../../containers/UserContainer';
 import Report from "./report";
 import "./report.css";
 
+
 class ReportContainer extends React.Component {
     constructor() {
         super();
@@ -16,6 +17,7 @@ class ReportContainer extends React.Component {
         return(
             <Accordion head="Reports" defaultOpened>
                     <Report/>     
+                    <Report/>
                     <Report/>           
             </Accordion>
         );
