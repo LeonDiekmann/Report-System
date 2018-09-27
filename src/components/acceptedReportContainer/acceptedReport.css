@@ -1,0 +1,290 @@
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
+}
+.accordion__item {
+    white-space: inherit;
+    display: block!important;
+}
+
+.accordion__item {
+    cursor: default;
+    padding: 8px 9px;
+    border-top: 1px solid #494949;
+}
+
+.accordion__head, .accordion__item {
+    padding: 4px 9px 3px 3px;
+    position: relative;
+    background-color: transparent;
+    transition: border-bottom 300ms ease-in-out 150ms, font-weight 300ms ease-in-out, font-size 300ms ease-in-out;
+    will-change: border-bottom, font-weight, font-size;
+}
+
+.accordion__item {
+    cursor: default;
+    padding: 8px 9px;
+    border-top: 1px solid #494949;
+}
+
+.article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 9px;
+}
+
+.article .article__gallery {
+    flex: 0.6;
+    align-self: flex-start;
+    overflow: hidden;
+    height: 161.52px;
+}
+
+.mic-slider {
+    position: relative;
+}
+
+.article .article__gallery .mic-slider.mic-slider--single-image {
+    padding-bottom: 23px;
+    height: 184.52px;
+}
+
+.mic-slider .mic-slider-container {
+    position: relative;
+    overflow: hidden;
+    height: 161.52px
+}
+
+element.style {
+    cursor: pointer;
+}
+
+.mic-slider .mic-slider-container .mic-slider-wrapper {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    will-change: transform;
+}
+
+.mic-slider .mic-slider-container .mic-slider-wrapper .mic-slider-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.chayns-color-mode--1 .mic-slider-slide {
+    background-color: #181818!important;
+    opacity: .85!important;
+}
+
+.article .article__text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-self: center;
+    padding-left: 3%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow-y: hidden;
+    overflow: hidden;
+    min-height: 161.52px;
+    
+}
+
+.article-image-text .article .article__text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-self: center;
+    padding-left: 3%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+
+element.style {
+    max-height: 150px;
+}
+
+.article .article__text .article__content, .article .article__text .article__content.closed {
+    transition: max-height .5s cubic-bezier(0,1,0,1) 0s;
+}
+
+.article .article__text .article__content {
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden;
+    height: auto!important;
+}
+
+.article .article__text .name {
+    margin-bottom: 5px;
+    font-size: 20px;
+    line-height: normal;
+    overflow-wrap: break-word;
+}
+
+.article .article__text .article__content .description {
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    overflow-x: hidden;
+    min-height: 115.52px;
+}
+
+.article .article__text .options {
+    margin-top: 15px;
+}
+
+.option-group {
+    margin-top: 10px;
+    overflow-y: hidden;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.checkbox+label, .radio+label {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    padding-left: 20px;
+}
+
+.article-image-text .article .more-button {
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+.link {
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 0 2px 1px;
+    line-height: 1;
+}
+
+.article__text .article-controls {
+    align-items: flex-end!important;
+    flex-wrap: wrap;
+}
+
+.article-controls {
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+    justify-content: flex-end;
+}
+
+.article-controls .trigger {
+    flex: 1;
+    height: 24px;
+}
+
+.cc__amount-control {
+    position: relative;
+    right: 1px;
+    display: inline-flex;
+    margin-right: 0;
+    align-items: baseline;
+    transition: margin-right .2s;
+}
+
+.chayns-color-mode--1 .cc__amount-control--shop .choosebutton {
+    background-color: #5d5d5d;
+}
+
+.cc__amount-control--shop .cc__amount-control__remove {
+    color: #d23f31;
+}
+
+.cc__amount-control__add .fa-trash, .cc__amount-control__remove .fa-trash {
+    font-size: 14px;
+}
+
+.cc__amount-control__button {
+    position: relative;
+    white-space: nowrap;
+    z-index: 1;
+    min-width: 60px;
+    transition: margin-right .1s ease-in-out!important;
+    margin: 0 -40px 0 6px;
+    margin-top: 0!important;
+    padding: 2px 10px;
+    height: 24px;
+    box-sizing: border-box;
+}
+
+.accordion__head .choosebutton, .accordion__item .choosebutton {
+    margin-left: 5px;
+    padding: 2px 15px;
+}
+
+.choosebutton {
+    font-size: .9rem;
+    font-weight: normal;
+    padding: 2px 12px;
+    background-color: #454545;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 25%),#454545;
+    
+}
+
+.button, .choosebutton {
+    display: inline-block;
+    text-align: center;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    transition: background 150ms ease;
+}
+
+.cc__amount-control--shop .cc__amount-control__add {
+    color: #20c65a;
+}
+
+.cc__amount-control__add, .cc__amount-control__remove {
+    width: 37.86px;
+    height: 24px;
+    padding: 0!important;
+    margin-top: 0!important;
+    align-self: stretch;
+    box-sizing: border-box;
+    font-size: 10px;
+    opacity: 0;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.mic-slider .mic-slider-container .mic-slider-wrapper .mic-slider-slide img {
+    height: 162.52px;
+    width: 161.52px;
+}
