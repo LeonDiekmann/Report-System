@@ -1,12 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { List } from 'immutable';
 import { Accordion } from 'chayns-components';
-import UserContainer from '../../containers/UserContainer';
 import Report from "./report";
 import "./report.css";
 
-
+const testObj = [{
+        shortDesc: "Report System Bug",
+        desc: "Im Report System werden die Reports nicht richtig angezeigt",
+        location: "TKWY",
+        name: "Leon Diekmann"
+    },
+    {
+        shortDesc: "Kaputter Teppich",
+        desc: "In Tobit 2 im ersten Stock ist an einer Stelle der Teppich kaputt",
+        location: "Campus",
+        name: "leon Diekmann"
+    }];
 class ReportContainer extends React.Component {
     constructor() {
         super();
@@ -16,12 +24,10 @@ class ReportContainer extends React.Component {
         
         return(
             <Accordion head="Reports" defaultOpened>
-                    <Report/>     
-                    <Report/>
-                    <Report/>           
+                    <Report {...testObj[0]}/>     
+                    <Report {...testObj[1]}/>          
             </Accordion>
         );
     }
 }
-
 export default ReportContainer;

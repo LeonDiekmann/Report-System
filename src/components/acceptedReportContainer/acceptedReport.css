@@ -140,7 +140,7 @@ element.style {
     white-space: pre-line;
     overflow-wrap: break-word;
     overflow-x: hidden;
-    min-height: 115.52px;
+    /* min-height: 115.52px; */
 }
 
 .article .article__text .options {
