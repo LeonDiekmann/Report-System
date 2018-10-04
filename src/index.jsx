@@ -55,7 +55,8 @@ async function init() {
             name: 'chayns® manager'
         }]
     });
-
+    
+    
     // dispatch async example action
     store.dispatch(loadData());
 }

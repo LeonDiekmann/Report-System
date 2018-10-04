@@ -1,22 +1,10 @@
 import React from 'react';
-import { Accordion, Input, SelectButton, Checkbox, FileUpload, Button } from 'chayns-components';
+import { Accordion, Input, SelectButton, Checkbox, FileUpload, Button, TextArea } from 'chayns-components';
 import 'chayns-components/lib/react-chayns-upload/index.css';
 import './CreateReport.css'
 
-let listDep = [
-    {
-        id: 1,
-        name: "Junior Team"
-    },
-    {
-        id: 2,
-        name: "Test Team"
-    },
-    {
-        id: 3,
-        name: "UI/UX"
-    }
-];
+
+let listGroups;
 
 let listLoc = [
     {
@@ -33,37 +21,39 @@ let listLoc = [
     }
 ];
 
-class CreateReport extends React.Component {
+export default class CreateReport extends React.Component {
     constructor() {
         super();
     }
+    
 
     render() {
-        
-        return(
+        return (
             <Accordion head="Report erstellen" defaultOpened>
                 <div className="accordion__content">
-                    <div style={{marginBottom: "15px"}}>
+                    <div style={{ marginBottom: "15px" }}>
                         <FileUpload
+                            upload
                             multiple={false}
                             type="image"
-                            onChange={(files, validFiles) => {
-                            console.log(`You have selected ${files.length} files of which ${validFiles.length} are valid`);
+                            onUpdate={(files, validFiles) => {
+                                console.log(`You have selected ${files.length} files of which ${validFiles.length} are valid`);
                             }}
                         />
                     </div>
-                    <Input type="text" placeholder="Kurzbeschreibung" responsive={true} style={{    width: "100%",marginBottom: "5px"}}/>
-                    <Input type="text" placeholder="Beschreibung (optional)" responsive={true} style={{    width: "100%",marginBottom: "5px"}}/>
-                    <div style={{marginTop: "10px"}}>
-                        <div style={{float: "left"}}>
+                    <Input type="text" placeholder="Kurzbeschreibung" responsive={true} style={{ width: "100%", marginBottom: "5px" }} />
+                    {/* <Input type="text" placeholder="Beschreibung" style={{ width: "100%", marginBottom: "5px" }} /> */}
+                    <TextArea placeholder="Beschreibung" required autogrow style={{ width: "100%" }} />
+                    <div style={{ marginTop: "10px" }}>
+                        <div style={{ float: "left" }}>
                             Abteilung
                         </div>
                         <div className="right" >
                             <SelectButton
-                                style={{marginRight: "10px"}}
-                                label={listDep[0].name}
-                                list={listDep}
-                                onSelect={(value) => { 
+                                style={{ marginRight: "10px" }}
+                                label={"Test"}
+                                list={listGroups}
+                                onSelect={(value) => {
                                     console.log(value);
                                 }}
                                 listKey="id"
@@ -71,16 +61,16 @@ class CreateReport extends React.Component {
                             />
                         </div>
                     </div>
-                    <div style={{marginTop: "10px"}}>
-                        <div style={{float: "left"}}>
+                    <div style={{ marginTop: "10px" }}>
+                        <div style={{ float: "left" }}>
                             Location
                         </div>
                         <div className="right" >
                             <SelectButton
-                                style={{marginRight: "10px"}}
+                                style={{ marginRight: "10px" }}
                                 label={listLoc[0].name}
                                 list={listLoc}
-                                onSelect={(value) => { 
+                                onSelect={(value) => {
                                     console.log(value);
                                 }}
                                 listKey="id"
@@ -88,22 +78,65 @@ class CreateReport extends React.Component {
                             />
                         </div>
                     </div>
-                    <div style={{marginTop: "15px"}}>
+                    <div style={{ marginTop: "15px" }}>
                         <Checkbox
                             label="Notfall"
                             toggleButton={true}
-                            onChange={ (value) => { console.log(value); }}
+                            onChange={(value) => {
+                                console.log(this.state.show);
+                                if (value) {
+                                    chayns.dialog.confirm(`Achtung`, `Wenn du ein Report als Notfall abschickst werden alle zuständigen Personen kontaktiert egal wie spät es ist. Bist du dir sicher, dass es sich bei dem Problem um einen Notfall handelt?`)
+                                        .then(function (data) {
+                                            console.log(data);
+                                        });
+                                }
+                            }}
                         />
                     </div>
-                    <div className = "center">
+                    <div className="center">
                         <Button>
                             Report erstellen
-                        </Button>    
+                        </Button>
                     </div>
-                </div>               
+                </div>
+                {this.fetchGroups()}
+                {console.log(chayns.env.user.tobitAccessToken)}
+                {console.log(chayns.env.site.tapp.id)}
             </Accordion>
         );
     }
+    fetchGroups() {
+        this.fetchGroupsPromise().then((result) => {
+            listGroups = result.data
+            Console.log(listGroups);
+        }).catch(() => {
+            console.log("failed");
+        });
+    }
+
+    fetchGroupsPromise() {
+        return new Promise((resolve,reject) => {
+            try{
+            fetch(`http://localhost:5000/group`, {
+                headers: {
+                    "Authorization": `Bearer ${chaynsInfo.user.tobitAccessToken}`,
+                    "TappId": chayns.env.site.tapp.id
+                }
+            })
+            .then((response) => {
+                return response.json()
+            }).then((json) => {
+                resolve(json);
+                console.log('parsed json', json)
+            }).catch( (ex) => {
+                console.log('parsing failed', ex)
+                reject(ex);
+            })
+            }
+            catch (ex){
+                reject(ex);
+            }
+        });
+    }
 }
 
-export default CreateReport;
